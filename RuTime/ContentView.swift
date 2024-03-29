@@ -45,13 +45,10 @@ struct ContentView: View {
                     }
                 }
                 Section {
-                    if (ruYears > 0) {
-                        Image(.heart).resizable().aspectRatio(contentMode: .fit).listRowInsets(EdgeInsets())
-                    } else if (ruYears == 0) {
-                        Image(.neutral).resizable().aspectRatio(contentMode: .fit).listRowInsets(EdgeInsets())
-                    } else {
-                        Image(.negative).resizable().aspectRatio(contentMode: .fit).listRowInsets(EdgeInsets())
-                    }
+                    Image(ruYears > 0 ? .heart : ruYears == 0 ? .neutral : .negative)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .listRowInsets(EdgeInsets())
                 }
                 
             }
@@ -65,29 +62,6 @@ struct ContentView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
-    }
-}
-
-func convertRuConstantToTimeUnit(ruYearConstant: Double, timeUnit: Int) -> Double {
-    let hoursPerDay: Double = 24;
-    let minutesPerDay: Double = hoursPerDay * 60;
-    let secondsPerDay: Double = minutesPerDay * 60;
-    
-    switch timeUnit {
-    case 0:
-        return ruYearConstant / secondsPerDay
-    case 1:
-        return ruYearConstant / minutesPerDay
-    case 2:
-        return ruYearConstant / hoursPerDay
-    case 3:
-        return ruYearConstant
-    case 4:
-        return ruYearConstant * 7
-    case 5:
-        return ruYearConstant * 7 * 52
-    default:
-        return ruYearConstant
     }
 }
 
