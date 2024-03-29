@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var humanTime: Double = 0
-    @State private var timeUnits = 0;
+    @State private var timeUnits = 3;
     @State private var isRounded = false
     
     @FocusState private var isHumanYearsFocused: Bool
@@ -36,7 +36,9 @@ struct ContentView: View {
                     }.pickerStyle(.navigationLink)
                 }
                 Section("Enter human timespan") {
-                    TextField("Human years", value: $humanTime, format: .number).keyboardType(.decimalPad).focused($isHumanYearsFocused)
+                    TextField("Human years", value: $humanTime, format: .number)
+                        .keyboardType(.decimalPad)
+                        .focused($isHumanYearsFocused)
                 }
                 Section("Time in Ru years") {
                     Text("\(ruYears, specifier: isRounded ? "%.0f" : "%.6f")")
@@ -45,7 +47,7 @@ struct ContentView: View {
                     }
                 }
                 Section {
-                    Image(ruYears > 0 ? .mifStandard : ruYears == 0 ? .mifStandard : .mifBlep)
+                    Image(ruYears > 0 ? .mifHeart : ruYears == 0 ? .mifStandard : .mifBlep)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .listRowInsets(EdgeInsets())
