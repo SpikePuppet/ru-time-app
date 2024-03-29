@@ -11,6 +11,8 @@ struct ContentView: View {
     @State private var humanTime: Double = 0
     @State private var timeUnits = 3;
     @State private var isRounded = false
+    @State private var showCredits = false;
+    @State private var clickCount = 0;
     
     @FocusState private var isHumanYearsFocused: Bool
     
@@ -51,6 +53,11 @@ struct ContentView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .listRowInsets(EdgeInsets())
+                }
+                Section {
+                    NavigationLink(destination: AboutView()) {
+                        Text("About")
+                    }
                 }
                 
             }
