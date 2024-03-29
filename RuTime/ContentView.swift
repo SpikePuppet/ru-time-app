@@ -45,7 +45,7 @@ struct ContentView: View {
                     }
                 }
                 Section {
-                    Image(ruYears > 0 ? .heart : ruYears == 0 ? .neutral : .negative)
+                    Image(ruYears > 0 ? .mifStandard : ruYears == 0 ? .mifStandard : .mifBlep)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .listRowInsets(EdgeInsets())
