@@ -12,7 +12,7 @@ struct AboutView: View {
         NavigationStack {
             VStack(spacing: 20) {
                 Text("App by Rhys Johns")
-                Text("Artwork by Aurora Hodges")
+                Text("Artwork by SugarandStories")
                 Text("c:")
                 NavigationLink(destination: ContentView()) {
                     Text("Back to calculator")
